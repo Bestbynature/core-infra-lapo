@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { BellIcon, HomeIcon, Profile2Icon } from "../assets/icons";
-import SearchIcon from "../assets/icons/search-icon";
+import SearchBox from "./search-box";
 
 const TitleBar = () => {
   const location = useLocation();
@@ -9,6 +9,8 @@ const TitleBar = () => {
   const lastPathPart = pathParts[pathParts.length - 1];
   const capitalizedPathPart =
     lastPathPart.charAt(0).toUpperCase() + lastPathPart.slice(1);
+
+  const isDashboard = lastPathPart === "dashboard";
 
   return (
     <>
@@ -21,15 +23,7 @@ const TitleBar = () => {
           </h1>
         </div>
         <div className="flex items-center justify-between gap-4">
-          <div className=" cursor-pointer flex-1 h-8 border border-gray-300 rounded-full py-2 px-3 flex items-center gap-2">
-            <SearchIcon />
-            <input
-              type="search"
-              name="search"
-              placeholder="Search"
-              className="w-full h-full outline-none bg-transparent text-xs text-[#344054] placeholder:text-[#344054]"
-            />
-          </div>
+          {isDashboard && <SearchBox placeholderText="Search" />}
           <span className="cursor-pointer">
             <BellIcon />
           </span>

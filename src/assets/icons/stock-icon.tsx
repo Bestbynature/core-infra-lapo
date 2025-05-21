@@ -10,7 +10,7 @@ const StockIcon: FC<IconProps> = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_112_6173)">
+      <g clipPath="url(#clip0_112_6173)">
         <path
           d="M2.66675 10L2.66675 12.6667"
           stroke="#808080"

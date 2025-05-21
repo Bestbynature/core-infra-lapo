@@ -27,3 +27,8 @@ export { default as HourglassIcon } from "./hourglass-icon";
 export { default as ExclamationCircleIcon } from "./exclamation-circle-icon";
 export { default as ArrowUpRightIcon } from "./arrow-up-right-icon";
 export { default as FullscreenIcon } from "./fullscreen-icon";
+export { default as UploadIcon } from "./upload-icon";
+export { default as PlusIcon } from "./plus-icon";
+export { default as RefreshIcon } from "./refresh-icon";
+export { default as EditIcon } from "./edit-icon";
+export { default as DeleteIcon } from "./delete-icon";
