@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { PlusIcon, RefreshIcon } from "../assets/icons";
 import SearchIcon from "../assets/icons/search-icon";
 import BlueButton from "./blue-button";
@@ -5,9 +6,13 @@ import WhiteButton from "./white-button";
 
 interface SearchRowProps {
   placeholderText: string;
+  blueButtonLabel?: string;
 }
 
-const SearchRow = ({ placeholderText }: SearchRowProps) => {
+const SearchRow = ({ placeholderText, blueButtonLabel }: SearchRowProps) => {
+  const location = useLocation();
+
+  const isBranches = location.pathname.includes("branches");
   return (
     <div className="flex flex-col gap-[10px]">
       <hr className="border border-gray-300 " />
@@ -23,16 +28,18 @@ const SearchRow = ({ placeholderText }: SearchRowProps) => {
         </div>
         <div className="flex items-center gap-3">
           <BlueButton
-            label="Add Branch"
+            label={blueButtonLabel || "Add Branch"}
             icon={<PlusIcon />}
             onClick={() => console.log("Add Branch clicked")}
           />
 
-          <WhiteButton
-            icon={<RefreshIcon />}
-            label="Update from Core"
-            onClick={() => console.log("Update from Core clicked")}
-          />
+          {isBranches && (
+            <WhiteButton
+              icon={<RefreshIcon />}
+              label="Update from Core"
+              onClick={() => console.log("Update from Core clicked")}
+            />
+          )}
         </div>
       </div>
 

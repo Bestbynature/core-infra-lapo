@@ -34,4 +34,20 @@ const pathElements = [
     path: routePaths.branches,
     element: React.createElement(routeComponents.branches),
   },
+  {
+    path: routePaths.roles,
+    element: React.createElement(routeComponents.roles),
+  },
+  {
+    path: routePaths.users,
+    element: React.createElement(routeComponents.users),
+  },
+  {
+    path: routePaths.cardScheme,
+    element: React.createElement(routeComponents.cardScheme),
+  },
+  {
+    path: routePaths.cardProfile,
+    element: React.createElement(routeComponents.cardProfile),
+  },
 ];

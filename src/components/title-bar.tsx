@@ -7,8 +7,10 @@ const TitleBar = () => {
   const path = location.pathname;
   const pathParts = path.split("/");
   const lastPathPart = pathParts[pathParts.length - 1];
-  const capitalizedPathPart =
-    lastPathPart.charAt(0).toUpperCase() + lastPathPart.slice(1);
+  const capitalizedPathPart = lastPathPart
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 
   const isDashboard = lastPathPart === "dashboard";
 

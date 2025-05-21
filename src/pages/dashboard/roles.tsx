@@ -1,59 +1,52 @@
 import { DeleteIcon, EditIcon } from "../../assets/icons";
 import { Header, SearchRow } from "../../components";
 
-const Branches = () => {
+const Roles = () => {
   return (
-    <main className="">
+    <div className="">
       <Header
-        title="Branches"
-        description="Add branches, view branches and edit branches."
+        title="Roles"
+        description="Manage your roles, create roles, view roles and edit roles. Select privileges and set account permissions here."
       />
-      <SearchRow placeholderText="Search branch" />
+      <SearchRow placeholderText="Search role" blueButtonLabel="Create Role" />
       <Table />
-    </main>
+    </div>
   );
 };
 
-export default Branches;
+export default Roles;
 
 interface TableRowData {
   name: string;
-  code: string;
-  address: string;
-  zone: string;
   dateAdded: string;
 }
 
 const Table: React.FC = () => {
   const tableHeadings = [
     { label: "Name", alignment: "text-left" },
-    { label: "Code", alignment: "text-center" },
-    { label: "Address", alignment: "text-center" },
-    { label: "Zone", alignment: "text-center" },
-    { label: "Date Added", alignment: "text-center" },
+    { label: "Date Created", alignment: "text-center" },
     { label: "Action", alignment: "text-center" },
   ];
 
   const tableData: TableRowData[] = [
     {
-      name: "Head Office",
-      code: "202",
-      address: "Lekki",
-      zone: "Lagos",
+      name: "Admin",
       dateAdded: "10/18/2024 14:39:58",
     },
     {
-      name: "Head Office",
-      code: "202",
-      address: "Lekki",
-      zone: "Lagos",
+      name: "Admin",
       dateAdded: "10/18/2024 14:39:58",
     },
     {
-      name: "Head Office",
-      code: "202",
-      address: "Lekki",
-      zone: "Lagos",
+      name: "Admin",
+      dateAdded: "10/18/2024 14:39:58",
+    },
+    {
+      name: "Admin",
+      dateAdded: "10/18/2024 14:39:58",
+    },
+    {
+      name: "Admin",
       dateAdded: "10/18/2024 14:39:58",
     },
   ];
@@ -76,27 +69,19 @@ const Table: React.FC = () => {
         <tbody>
           {tableData.map((row, rowIndex) => (
             <tr key={rowIndex} className="bg-white hover:bg-gray-50">
-              <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-left">
+              <td className="py-2 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-left">
                 {row.name}
               </td>
-              <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
-                {row.code}
-              </td>
-              <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
-                {row.address}
-              </td>
-              <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
-                {row.zone}
-              </td>
-              <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
+
+              <td className="py-2 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
                 {row.dateAdded}
               </td>
-              <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
+              <td className="py-2 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
                 <div className="flex items-center justify-center space-x-2">
-                  <span className=" cursor-pointer">
+                  <span className="cursor-pointer">
                     <DeleteIcon />
                   </span>
-                  <span className=" cursor-pointer">
+                  <span className="cursor-pointer">
                     <EditIcon />
                   </span>
                 </div>

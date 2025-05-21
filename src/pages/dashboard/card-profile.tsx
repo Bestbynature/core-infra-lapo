@@ -1,59 +1,69 @@
 import { DeleteIcon, EditIcon } from "../../assets/icons";
 import { Header, SearchRow } from "../../components";
 
-const Branches = () => {
+const CardProfile = () => {
   return (
     <main className="">
       <Header
-        title="Branches"
-        description="Add branches, view branches and edit branches."
+        title="Card Profile"
+        description="Create, view and edit card profiles here."
       />
-      <SearchRow placeholderText="Search branch" />
+      <SearchRow
+        placeholderText="Search by card name"
+        blueButtonLabel="Add Profile"
+      />
       <Table />
     </main>
   );
 };
 
-export default Branches;
+export default CardProfile;
 
 interface TableRowData {
-  name: string;
-  code: string;
-  address: string;
-  zone: string;
+  cardName: string;
+  currency: string;
+  expiration: string;
+  binPrefix: string;
   dateAdded: string;
 }
 
 const Table: React.FC = () => {
   const tableHeadings = [
-    { label: "Name", alignment: "text-left" },
-    { label: "Code", alignment: "text-center" },
-    { label: "Address", alignment: "text-center" },
-    { label: "Zone", alignment: "text-center" },
+    { label: "Card Name", alignment: "text-left" },
+    { label: "Currency", alignment: "text-center" },
+    { label: "Expiration", alignment: "text-center" },
+    { label: "BIN Prefix", alignment: "text-center" },
     { label: "Date Added", alignment: "text-center" },
     { label: "Action", alignment: "text-center" },
   ];
 
   const tableData: TableRowData[] = [
     {
-      name: "Head Office",
-      code: "202",
-      address: "Lekki",
-      zone: "Lagos",
+      cardName: "Verve-1",
+      currency: "NGN",
+      expiration: "40 months",
+      binPrefix: "50611234",
       dateAdded: "10/18/2024 14:39:58",
     },
     {
-      name: "Head Office",
-      code: "202",
-      address: "Lekki",
-      zone: "Lagos",
+      cardName: "Verve-1",
+      currency: "NGN",
+      expiration: "40 months",
+      binPrefix: "50611234",
       dateAdded: "10/18/2024 14:39:58",
     },
     {
-      name: "Head Office",
-      code: "202",
-      address: "Lekki",
-      zone: "Lagos",
+      cardName: "Verve-1",
+      currency: "NGN",
+      expiration: "40 months",
+      binPrefix: "50611234",
+      dateAdded: "10/18/2024 14:39:58",
+    },
+    {
+      cardName: "Verve-1",
+      currency: "NGN",
+      expiration: "40 months",
+      binPrefix: "50611234  ",
       dateAdded: "10/18/2024 14:39:58",
     },
   ];
@@ -77,16 +87,16 @@ const Table: React.FC = () => {
           {tableData.map((row, rowIndex) => (
             <tr key={rowIndex} className="bg-white hover:bg-gray-50">
               <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-left">
-                {row.name}
+                {row.cardName}
               </td>
               <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
-                {row.code}
+                {row.currency}
               </td>
               <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
-                {row.address}
+                {row.expiration}
               </td>
               <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
-                {row.zone}
+                {row.binPrefix}
               </td>
               <td className="py-3 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
                 {row.dateAdded}

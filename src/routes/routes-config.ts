@@ -7,10 +7,26 @@ const DashboardOverview = lazy(
 
 const DashboardBranches = lazy(() => import("../pages/dashboard/branches"));
 
+const DashboardRoles = lazy(() => import("../pages/dashboard/roles"));
+
+const DashboardUsers = lazy(() => import("../pages/dashboard/users"));
+
+const DashboardCardScheme = lazy(
+  () => import("../pages/dashboard/card-scheme")
+);
+
+const DashboardCardProfile = lazy(
+  () => import("../pages/dashboard/card-profile")
+);
+
 export const routeComponents = {
   login: Login,
   dashboard: DashboardOverview,
   branches: DashboardBranches,
+  roles: DashboardRoles,
+  users: DashboardUsers,
+  cardScheme: DashboardCardScheme,
+  cardProfile: DashboardCardProfile,
 } as const;
 
 export const routePaths = {
