@@ -23,7 +23,6 @@ const LoginForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     localStorage.setItem("loginData", JSON.stringify(formData));
-    // alert("Login data saved to local storage!");
     navigate(routePaths.dashboard);
   };
   return (

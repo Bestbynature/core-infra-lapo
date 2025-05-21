@@ -62,4 +62,24 @@ const pathElements = [
     path: routePaths.blockCard,
     element: React.createElement(routeComponents.blockCard),
   },
+  {
+    path: routePaths.cards,
+    element: React.createElement(routeComponents.cards),
+  },
+  {
+    path: routePaths.authList,
+    element: React.createElement(routeComponents.authList),
+  },
+  {
+    path: routePaths.authQueue,
+    element: React.createElement(routeComponents.authQueue),
+  },
+  {
+    path: routePaths.trail,
+    element: React.createElement(routeComponents.trail),
+  },
+  {
+    path: routePaths.account,
+    element: React.createElement(routeComponents.account),
+  },
 ];

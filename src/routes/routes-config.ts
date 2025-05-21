@@ -29,6 +29,20 @@ const DashboardBlockCard = lazy(
   () => import("../pages/dashboard/block-unblock-card")
 );
 
+const DashboardCards = lazy(() => import("../pages/dashboard/cards"));
+
+const DashboardAuthList = lazy(
+  () => import("../pages/dashboard/authorization-list")
+);
+
+const DashboardAuthQueue = lazy(
+  () => import("../pages/dashboard/authorization-queue")
+);
+
+const DashboardTrail = lazy(() => import("../pages/dashboard/trail"));
+
+const DashboardAccount = lazy(() => import("../pages/dashboard/account"));
+
 export const routeComponents = {
   login: Login,
   dashboard: DashboardOverview,
@@ -40,6 +54,11 @@ export const routeComponents = {
   cardRequest: DashboardCardRequest,
   blockCard: DashboardBlockCard,
   stock: DashboardStock,
+  cards: DashboardCards,
+  authList: DashboardAuthList,
+  authQueue: DashboardAuthQueue,
+  trail: DashboardTrail,
+  account: DashboardAccount,
 } as const;
 
 export const routePaths = {

@@ -17,7 +17,7 @@ const SearchRow = ({ placeholderText, blueButtonLabel }: SearchRowProps) => {
     <div className="flex flex-col gap-[10px]">
       <hr className="border border-gray-300 " />
       <div className="flex items-center justify-between">
-        <div className=" cursor-pointer w-[25%] h-8 border border-gray-300 rounded-lg py-2 px-3 flex items-center gap-2">
+        <div className=" cursor-pointer w-[25%] h-8 border border-gray-300 bg-white rounded-lg py-2 px-3 flex items-center gap-2">
           <SearchIcon />
           <input
             type="search"

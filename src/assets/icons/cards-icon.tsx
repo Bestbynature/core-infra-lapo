@@ -1,7 +1,7 @@
 import { type FC } from "react";
 import type { IconProps } from "../../utils/types/login-types";
 
-const CardsIcon: FC<IconProps> = () => {
+const CardsIcon: FC<IconProps> = ({ outlineColor }) => {
   return (
     <svg
       width="16"
@@ -12,7 +12,7 @@ const CardsIcon: FC<IconProps> = () => {
     >
       <path
         d="M7.00004 13.3333H9.00004C11.5058 13.3333 12.7586 13.3333 13.5951 12.6728C13.7289 12.5671 13.8526 12.4506 13.9648 12.3247C14.6667 11.5375 14.6667 10.3583 14.6667 8C14.6667 7.21125 14.6667 6.5544 14.6404 6H1.35963C1.33337 6.5544 1.33337 7.21125 1.33337 8C1.33337 10.3583 1.33337 11.5375 2.03524 12.3247C2.1475 12.4506 2.27123 12.5671 2.40501 12.6728C3.24146 13.3333 4.49432 13.3333 7.00004 13.3333Z"
-        stroke="#808080"
+        stroke={outlineColor ?? "#808080"}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -22,25 +22,29 @@ const CardsIcon: FC<IconProps> = () => {
       />
       <path
         d="M1.33337 7.99984C1.33337 5.64151 1.33337 4.46235 2.03524 3.6751C2.1475 3.54919 2.27123 3.43274 2.40501 3.32708C3.24146 2.6665 4.49432 2.6665 7.00004 2.6665H9.00004C11.5058 2.6665 12.7586 2.6665 13.5951 3.32708C13.7289 3.43274 13.8526 3.54919 13.9648 3.6751C14.6667 4.46235 14.6667 5.64151 14.6667 7.99984C14.6667 10.3582 14.6667 11.5373 13.9648 12.3246C13.8526 12.4505 13.7289 12.5669 13.5951 12.6726C12.7586 13.3332 11.5058 13.3332 9.00004 13.3332H7.00004C4.49432 13.3332 3.24146 13.3332 2.40501 12.6726C2.27123 12.5669 2.1475 12.4505 2.03524 12.3246C1.33337 11.5373 1.33337 10.3582 1.33337 7.99984Z"
-        stroke="#808080"
+        stroke={outlineColor ?? "#808080"}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M6.66675 10.6665H7.66675"
-        stroke="#808080"
+        stroke={outlineColor ?? "#808080"}
         strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M9.66675 10.6665L12.0001 10.6665"
-        stroke="#808080"
+        stroke={outlineColor ?? "#808080"}
         strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M1.33337 6H14.6667" stroke="#808080" strokeLinejoin="round" />
+      <path
+        d="M1.33337 6H14.6667"
+        stroke={outlineColor ?? "#808080"}
+        strokeLinejoin="round"
+      />
     </svg>
   );
 };

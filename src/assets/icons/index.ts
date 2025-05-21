@@ -33,3 +33,6 @@ export { default as RefreshIcon } from "./refresh-icon";
 export { default as EditIcon } from "./edit-icon";
 export { default as DeleteIcon } from "./delete-icon";
 export { default as BlockCardIcon } from "./block-card-icon";
+export { default as FilterIcon } from "./filter-icon";
+export { default as DotIcon } from "./dot-icon";
+export { default as ConfigureIcon } from "./configure-icon";

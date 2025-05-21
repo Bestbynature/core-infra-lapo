@@ -7,3 +7,4 @@ export { default as SearchBox } from "./search-box";
 export { default as SearchRow } from "./search-row";
 export { default as BlueButton } from "./blue-button";
 export { default as WhiteButton } from "./white-button";
+export { default as Pagination } from "./pagination";

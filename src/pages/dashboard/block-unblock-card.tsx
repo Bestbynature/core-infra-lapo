@@ -9,6 +9,7 @@ const BlockUnblockCard = () => {
         title="Block/Unblock Card"
         description="Attend to card block and unblock requests here."
       />
+      <hr className="my-2 border-t border-[#98A2B3]" />
       <AvailableCardsTable />
     </main>
   );
