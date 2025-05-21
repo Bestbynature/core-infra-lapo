@@ -8,7 +8,7 @@ const ProtectedLayout = () => {
       <Sidebar />
       <div className="flex flex-col">
         <TitleBar />
-        <div className="bg-[#f7fbff] px-5 pt-2 pb-5">
+        <div className="bg-[#f7fbff] px-5 pt-2 pb-5 flex-1 ">
           <Outlet />
         </div>
       </div>

@@ -50,4 +50,16 @@ const pathElements = [
     path: routePaths.cardProfile,
     element: React.createElement(routeComponents.cardProfile),
   },
+  {
+    path: routePaths.cardRequest,
+    element: React.createElement(routeComponents.cardRequest),
+  },
+  {
+    path: routePaths.stock,
+    element: React.createElement(routeComponents.stock),
+  },
+  {
+    path: routePaths.blockCard,
+    element: React.createElement(routeComponents.blockCard),
+  },
 ];

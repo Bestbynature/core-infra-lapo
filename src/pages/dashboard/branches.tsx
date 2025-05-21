@@ -8,7 +8,7 @@ const Branches = () => {
         title="Branches"
         description="Add branches, view branches and edit branches."
       />
-      <SearchRow placeholderText="Search branch" />
+      <SearchRow placeholderText="Search branch" blueButtonLabel="Add Branch" />
       <Table />
     </main>
   );

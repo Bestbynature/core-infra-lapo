@@ -218,10 +218,7 @@ const Metrics: React.FC = () => {
   );
 };
 
-import React from "react";
-
 const RecentCardRequestsTable = () => {
-  // Sample data for the table
   const cardRequests = [
     {
       id: 1,
@@ -253,7 +250,6 @@ const RecentCardRequestsTable = () => {
     },
   ];
 
-  // Helper function to determine status badge styling
   const getStatusBadgeClasses = (status: string) => {
     switch (status) {
       case "Ready":
@@ -289,7 +285,7 @@ const RecentCardRequestsTable = () => {
                   <th
                     key={header}
                     scope="col"
-                    className="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-tight whitespace-nowrap"
+                    className="px-4 py-2 text-center text-xs font-medium text-gray-500 tracking-tight whitespace-nowrap"
                   >
                     {header}
                   </th>

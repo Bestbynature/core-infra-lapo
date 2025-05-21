@@ -1,6 +1,7 @@
 import {
   AuthListIcon,
   AuthQueueIcon,
+  BlockCardIcon,
   BranchesIcon,
   CardProfileIcon,
   CardRequestIcon,
@@ -46,6 +47,11 @@ const Sidebar = () => {
       path: routePaths.cardRequest,
     },
     { label: "Stock", icon: <StockIcon />, path: routePaths.stock },
+    {
+      label: "Block/Unblock Card",
+      icon: <BlockCardIcon />,
+      path: routePaths.blockCard,
+    },
     { label: "Cards", icon: <CardsIcon />, path: routePaths.cards },
     {
       label: "Authorization List",

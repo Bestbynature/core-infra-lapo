@@ -32,3 +32,4 @@ export { default as PlusIcon } from "./plus-icon";
 export { default as RefreshIcon } from "./refresh-icon";
 export { default as EditIcon } from "./edit-icon";
 export { default as DeleteIcon } from "./delete-icon";
+export { default as BlockCardIcon } from "./block-card-icon";

@@ -27,11 +27,13 @@ const SearchRow = ({ placeholderText, blueButtonLabel }: SearchRowProps) => {
           />
         </div>
         <div className="flex items-center gap-3">
-          <BlueButton
-            label={blueButtonLabel || "Add Branch"}
-            icon={<PlusIcon />}
-            onClick={() => console.log("Add Branch clicked")}
-          />
+          {blueButtonLabel && (
+            <BlueButton
+              label={blueButtonLabel}
+              icon={<PlusIcon />}
+              onClick={() => console.log("Add Branch clicked")}
+            />
+          )}
 
           {isBranches && (
             <WhiteButton
