@@ -1,14 +1,105 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./assets/fonts/Satoshi-Light.woff2") format("woff2"),
+    url("./assets/fonts/Satoshi-Light.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./assets/fonts/Satoshi-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Satoshi-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./assets/fonts/Satoshi-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Satoshi-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: "Satoshi", sans-serif;
+}
+
+input,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: color 9999s ease-out, background-color 9999s ease-out !important;
+  -webkit-transition-delay: 9999s !important;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color: rgba(0, 0, 0, 0.87);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@theme {
+  --color-primary: #121212;
+  --color-primary-16: #161616;
+  --color-secondary: #808080;
+  --color-gray-300: #d0d5dd;
+  --color-lapo-blue: #014daf;
+}
+
+@layer utilities {
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .border-primary {
+    border-color: var(--color-primary);
+  }
+  .bg-primary-16 {
+    background-color: var(--color-primary-16);
+  }
+  .text-primary-16 {
+    color: var(--color-primary-16);
+  }
+  .border-primary-16 {
+    border-color: var(--color-primary-16);
+  }
+  .bg-lapo-blue {
+    background-color: var(--color-lapo-blue);
+  }
+  .text-lapo-blue {
+    color: var(--color-lapo-blue);
+  }
+  .border-lapo-blue {
+    border-color: var(--color-lapo-blue);
+  }
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+  .border-secondary {
+    border-color: var(--color-secondary);
+  }
+  .border-gray-300 {
+    border-color: var(--color-gray-300);
+  }
+}
+
+.fitted {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
