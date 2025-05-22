@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { UploadIcon } from "../assets/icons";
 import WhiteButton from "./white-button";
+import useModal from "../utils/context/use-modal";
 
 interface HeaderProps {
   title: string;
@@ -12,6 +13,13 @@ const Header: React.FC<HeaderProps> = ({ title, description }) => {
 
   const isBranches = location.pathname.includes("branches");
 
+  const { setIsModalOpen, setIsCSVUploadModalOpen } = useModal();
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+    setIsCSVUploadModalOpen(true);
+  };
+
   return (
     <div className="flex items-end pb-[10px] ">
       <div className="flex-1 flex flex-col gap-1">
@@ -20,7 +28,11 @@ const Header: React.FC<HeaderProps> = ({ title, description }) => {
       </div>
       {isBranches && (
         <div>
-          <WhiteButton icon={<UploadIcon />} label="Upload File" />
+          <WhiteButton
+            icon={<UploadIcon />}
+            label="Upload File"
+            onClick={handleOpenModal}
+          />
         </div>
       )}
     </div>

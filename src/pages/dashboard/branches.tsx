@@ -1,14 +1,26 @@
 import { DeleteIcon, EditIcon } from "../../assets/icons";
 import { Header, SearchRow } from "../../components";
+import useModal from "../../utils/context/use-modal";
 
 const Branches = () => {
+  const { setIsAddBranchModalOpen, setIsModalOpen } = useModal();
+
+  const handleAddBranchClick = () => {
+    setIsAddBranchModalOpen(true);
+    setIsModalOpen(true);
+  };
+
   return (
     <main className="">
       <Header
         title="Branches"
         description="Add branches, view branches and edit branches."
       />
-      <SearchRow placeholderText="Search branch" blueButtonLabel="Add Branch" />
+      <SearchRow
+        placeholderText="Search branch"
+        blueButtonLabel="Add Branch"
+        onBlueButtonClick={handleAddBranchClick}
+      />
       <Table />
     </main>
   );

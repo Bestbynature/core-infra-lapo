@@ -1,14 +1,26 @@
 import { DeleteIcon, EditIcon } from "../../assets/icons";
 import { Header, SearchRow } from "../../components";
+import useModal from "../../utils/context/use-modal";
 
 const Users = () => {
+  const { setIsModalOpen, setIsCreateUserModalOpen } = useModal();
+
+  const handleCreateUserClick = () => {
+    setIsCreateUserModalOpen(true);
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="">
       <Header
         title="Users"
         description="Manage your users, create users, view and edit users. Assign roles to users here."
       />
-      <SearchRow placeholderText="Search user" blueButtonLabel="Create User" />
+      <SearchRow
+        placeholderText="Search user"
+        blueButtonLabel="Create User"
+        onBlueButtonClick={handleCreateUserClick}
+      />
       <Table />
     </div>
   );

@@ -19,6 +19,10 @@ const DashboardCardProfile = lazy(
   () => import("../pages/dashboard/card-profile")
 );
 
+const DashboardCreateProfile = lazy(
+  () => import("../pages/dashboard/create-profile")
+);
+
 const DashboardCardRequest = lazy(
   () => import("../pages/dashboard/card-request")
 );
@@ -43,14 +47,20 @@ const DashboardTrail = lazy(() => import("../pages/dashboard/trail"));
 
 const DashboardAccount = lazy(() => import("../pages/dashboard/account"));
 
+const DashboardCreateRole = lazy(
+  () => import("../pages/dashboard/create-role")
+);
+
 export const routeComponents = {
   login: Login,
   dashboard: DashboardOverview,
   branches: DashboardBranches,
   roles: DashboardRoles,
+  createRole: DashboardCreateRole,
   users: DashboardUsers,
   cardScheme: DashboardCardScheme,
   cardProfile: DashboardCardProfile,
+  createProfile: DashboardCreateProfile,
   cardRequest: DashboardCardRequest,
   blockCard: DashboardBlockCard,
   stock: DashboardStock,
@@ -66,9 +76,11 @@ export const routePaths = {
   dashboard: "/dashboard",
   branches: "/dashboard/branches",
   roles: "/dashboard/roles",
+  createRole: "/dashboard/create-role",
   users: "/dashboard/users",
   cardScheme: "/dashboard/card-scheme",
   cardProfile: "/dashboard/card-profile",
+  createProfile: "/dashboard/create-profile",
   cardRequest: "/dashboard/card-request",
   stock: "/dashboard/stock",
   blockCard: "/dashboard/block-unblock-card",

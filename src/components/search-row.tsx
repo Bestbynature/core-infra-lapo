@@ -7,9 +7,14 @@ import WhiteButton from "./white-button";
 interface SearchRowProps {
   placeholderText: string;
   blueButtonLabel?: string;
+  onBlueButtonClick?: () => void;
 }
 
-const SearchRow = ({ placeholderText, blueButtonLabel }: SearchRowProps) => {
+const SearchRow = ({
+  placeholderText,
+  blueButtonLabel,
+  onBlueButtonClick,
+}: SearchRowProps) => {
   const location = useLocation();
 
   const isBranches = location.pathname.includes("branches");
@@ -31,7 +36,7 @@ const SearchRow = ({ placeholderText, blueButtonLabel }: SearchRowProps) => {
             <BlueButton
               label={blueButtonLabel}
               icon={<PlusIcon />}
-              onClick={() => console.log("Add Branch clicked")}
+              onClick={onBlueButtonClick}
             />
           )}
 

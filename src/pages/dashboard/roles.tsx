@@ -1,14 +1,22 @@
+import { useNavigate } from "react-router-dom";
 import { DeleteIcon, EditIcon } from "../../assets/icons";
 import { Header, SearchRow } from "../../components";
+import { routePaths } from "../../routes/routes-config";
 
 const Roles = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="">
       <Header
         title="Roles"
         description="Manage your roles, create roles, view roles and edit roles. Select privileges and set account permissions here."
       />
-      <SearchRow placeholderText="Search role" blueButtonLabel="Create Role" />
+      <SearchRow
+        placeholderText="Search role"
+        blueButtonLabel="Create Role"
+        onBlueButtonClick={() => navigate(routePaths.createRole)}
+      />
       <Table />
     </div>
   );
@@ -59,7 +67,7 @@ const Table: React.FC = () => {
             {tableHeadings.map((heading, index) => (
               <th
                 key={index}
-                className={`py-3 px-4  font-medium text-xs bg-[#F9FAFB] text-[#475467] border-b border-gray-200 ${heading.alignment}`}
+                className={`py-3 px-4  font-medium text-xs bg-[#F9FAFB] text-[#475467] border border-gray-200 ${heading.alignment}`}
               >
                 {heading.label}
               </th>
@@ -69,14 +77,14 @@ const Table: React.FC = () => {
         <tbody>
           {tableData.map((row, rowIndex) => (
             <tr key={rowIndex} className="bg-white hover:bg-gray-50">
-              <td className="py-2 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-left">
+              <td className="py-2 px-4 border border-gray-200 text-[10px] text-[#475467] text-left">
                 {row.name}
               </td>
 
-              <td className="py-2 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
+              <td className="py-2 px-4 border border-gray-200 text-[10px] text-[#475467] text-center">
                 {row.dateAdded}
               </td>
-              <td className="py-2 px-4 border-b border-gray-200 text-[10px] text-[#475467] text-center">
+              <td className="py-2 px-4 border border-gray-200 text-[10px] text-[#475467] text-center">
                 <div className="flex items-center justify-center space-x-2">
                   <span className="cursor-pointer">
                     <DeleteIcon />

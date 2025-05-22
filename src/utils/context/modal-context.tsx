@@ -1,0 +1,20 @@
+import { createContext } from "react";
+
+export interface ModalContextProps {
+  isModalOpen: boolean;
+  setIsModalOpen: (isOpen: boolean) => void;
+  isAddBranchModalOpen: boolean;
+  setIsAddBranchModalOpen: (isOpen: boolean) => void;
+  isCSVUploadModalOpen: boolean;
+  setIsCSVUploadModalOpen: (isOpen: boolean) => void;
+  isAddCardSchemeModalOpen: boolean;
+  setIsAddCardSchemeModalOpen: (isOpen: boolean) => void;
+  isCreateUserModalOpen: boolean;
+  setIsCreateUserModalOpen: (isOpen: boolean) => void;
+  isAddFeeModalOpen: boolean;
+  setIsAddFeeModalOpen: (isOpen: boolean) => void;
+}
+
+export const ModalContext = createContext<ModalContextProps | undefined>(
+  undefined
+);

@@ -1,9 +1,17 @@
 import { DeleteIcon, EditIcon } from "../../assets/icons";
 import { Header, SearchRow } from "../../components";
+import useModal from "../../utils/context/use-modal";
 
 const CardScheme = () => {
+  const { setIsAddCardSchemeModalOpen, setIsModalOpen } = useModal();
+
+  const handleAddCardSchemeClick = () => {
+    setIsAddCardSchemeModalOpen(true);
+    setIsModalOpen(true);
+  };
+
   return (
-    <div className="">
+    <main className="">
       <Header
         title="Card Scheme"
         description="Add, view and edit card schemes here."
@@ -11,9 +19,11 @@ const CardScheme = () => {
       <SearchRow
         placeholderText="Search by scheme name"
         blueButtonLabel="Add Scheme"
+        onBlueButtonClick={handleAddCardSchemeClick}
       />
+
       <Table />
-    </div>
+    </main>
   );
 };
 

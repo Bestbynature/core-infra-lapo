@@ -8,3 +8,4 @@ export { default as SearchRow } from "./search-row";
 export { default as BlueButton } from "./blue-button";
 export { default as WhiteButton } from "./white-button";
 export { default as Pagination } from "./pagination";
+export { default as RHFInput } from "./rhf-input";

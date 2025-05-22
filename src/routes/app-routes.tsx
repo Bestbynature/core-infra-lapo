@@ -5,10 +5,15 @@ import { PageLoadingSpinner } from "../components";
 import { routePaths, routeComponents } from "./routes-config";
 import UnprotectedLayout from "../layout.tsx/unprotected-layout";
 import ProtectedLayout from "../layout.tsx/protected-layout";
+import useModal from "../utils/context/use-modal";
+import ModalBox from "../components/modals";
 
 const AppRoutes: React.FC = () => {
+  const { isModalOpen } = useModal();
+
   return (
     <Suspense fallback={<PageLoadingSpinner />}>
+      {isModalOpen && <ModalBox />}
       <Routes>
         <Route path={routePaths.login} element={<UnprotectedLayout />}>
           <Route index element={React.createElement(routeComponents.login)} />
@@ -39,6 +44,10 @@ const pathElements = [
     element: React.createElement(routeComponents.roles),
   },
   {
+    path: routePaths.createRole,
+    element: React.createElement(routeComponents.createRole),
+  },
+  {
     path: routePaths.users,
     element: React.createElement(routeComponents.users),
   },
@@ -49,6 +58,10 @@ const pathElements = [
   {
     path: routePaths.cardProfile,
     element: React.createElement(routeComponents.cardProfile),
+  },
+  {
+    path: routePaths.createProfile,
+    element: React.createElement(routeComponents.createProfile),
   },
   {
     path: routePaths.cardRequest,

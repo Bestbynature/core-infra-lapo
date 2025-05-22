@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { DeleteIcon, EditIcon } from "../../assets/icons";
 import { Header, SearchRow } from "../../components";
+import { routePaths } from "../../routes/routes-config";
 
 const CardProfile = () => {
+  const navigate = useNavigate();
+
+  const handleAddProfile = () => {
+    navigate(routePaths.createProfile);
+  };
+
   return (
     <main className="">
       <Header
@@ -11,6 +19,7 @@ const CardProfile = () => {
       <SearchRow
         placeholderText="Search by card name"
         blueButtonLabel="Add Profile"
+        onBlueButtonClick={handleAddProfile}
       />
       <Table />
     </main>

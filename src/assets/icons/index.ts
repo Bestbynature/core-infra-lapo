@@ -36,3 +36,8 @@ export { default as BlockCardIcon } from "./block-card-icon";
 export { default as FilterIcon } from "./filter-icon";
 export { default as DotIcon } from "./dot-icon";
 export { default as ConfigureIcon } from "./configure-icon";
+export { default as CloseIcon } from "./close-icon";
+export { default as AddBranchIcon } from "./add-branch-icon";
+export { default as CloudUploadIcon } from "./cloud-upload-icon";
+export { default as AddUserIcon } from "./add-user-icon";
+export { default as PlusInACircleIcon } from "./plus-in-a-circle-icon";

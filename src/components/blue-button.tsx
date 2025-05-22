@@ -6,7 +6,8 @@ interface BlueButtonProps {
 const BlueButton = ({ onClick, icon, label }: BlueButtonProps) => {
   return (
     <button
-      className="bg-[#014DAF] border rounded-[4px] border-gray-300 text-white text-xs font-medium flex items-center gap-2 py-2 px-2"
+      type="button"
+      className="bg-[#014DAF] border rounded-[4px] border-gray-300 text-white text-xs font-medium flex items-center gap-2 py-2 px-2 cursor-pointer"
       onClick={onClick}
     >
       {icon}
