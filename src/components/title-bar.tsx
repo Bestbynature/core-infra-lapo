@@ -14,6 +14,8 @@ import { useLocation } from "react-router-dom";
 const TitleBar = () => {
   const capitalizedPathPart = useFormattedPathTitle();
 
+  const title = `${capitalizedPathPart} | Lapo`;
+
   const isDashboard = capitalizedPathPart === "Dashboard";
 
   const icon = sidebarItems.find(
@@ -48,7 +50,7 @@ const TitleBar = () => {
 
   return (
     <>
-      <title>{capitalizedPathPart || "Dashboard"}</title>
+      <title>{title || "Dashboard"}</title>
       <div className="flex items-center justify-between border-b border-[#DEDEDF] bg-white px-5 py-3">
         {!isSpecialPath ? (
           <div className="flex items-center gap-3">
