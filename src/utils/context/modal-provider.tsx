@@ -11,6 +11,33 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
     useState(false);
   const [isCreateUserModalOpen, setIsCreateUserModalOpen] = useState(false);
   const [isAddFeeModalOpen, setIsAddFeeModalOpen] = useState(false);
+  const [isProDownloadSuccessModalOpen, setIsProDownloadSuccessModalOpen] =
+    useState(false);
+
+  const [isSendToDispatchModalOpen, setIsSendToDispatchModalOpen] =
+    useState(false);
+
+  const [isGeneratePinModalOpen, setIsGeneratePinModalOpen] = useState(false);
+
+  const [isReissuePinModalOpen, setIsReissuePinModalOpen] = useState(false);
+
+  const [isGenerateShowPinModalOpen, setIsGenerateShowPinModalOpen] =
+    useState(false);
+
+  const [isReissueShowPinModalOpen, setIsReissueShowPinModalOpen] =
+    useState(false);
+
+  const [isGenerateSendSmsModalOpen, setIsGenerateSendSmsModalOpen] =
+    useState(false);
+
+  const [isReissueSendSmsModalOpen, setIsReissueSendSmsModalOpen] =
+    useState(false);
+
+  const [isGenerateSendEmailModalOpen, setIsGenerateSendEmailModalOpen] =
+    useState(false);
+
+  const [isReissueSendEmailModalOpen, setIsReissueSendEmailModalOpen] =
+    useState(false);
 
   return (
     <ModalContext.Provider
@@ -27,6 +54,26 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
         setIsCreateUserModalOpen,
         isAddFeeModalOpen,
         setIsAddFeeModalOpen,
+        isProDownloadSuccessModalOpen,
+        setIsProDownloadSuccessModalOpen,
+        isSendToDispatchModalOpen,
+        setIsSendToDispatchModalOpen,
+        isGeneratePinModalOpen,
+        setIsGeneratePinModalOpen,
+        isReissuePinModalOpen,
+        setIsReissuePinModalOpen,
+        isGenerateShowPinModalOpen,
+        setIsGenerateShowPinModalOpen,
+        isReissueShowPinModalOpen,
+        setIsReissueShowPinModalOpen,
+        isGenerateSendSmsModalOpen,
+        setIsGenerateSendSmsModalOpen,
+        isReissueSendSmsModalOpen,
+        setIsReissueSendSmsModalOpen,
+        isGenerateSendEmailModalOpen,
+        setIsGenerateSendEmailModalOpen,
+        isReissueSendEmailModalOpen,
+        setIsReissueSendEmailModalOpen,
       }}
     >
       {children}

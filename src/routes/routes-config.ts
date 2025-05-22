@@ -27,10 +27,18 @@ const DashboardCardRequest = lazy(
   () => import("../pages/dashboard/card-request")
 );
 
+const DashboardRequestDetails = lazy(
+  () => import("../pages/dashboard/request-details")
+);
+
 const DashboardStock = lazy(() => import("../pages/dashboard/stock"));
 
 const DashboardBlockCard = lazy(
   () => import("../pages/dashboard/block-unblock-card")
+);
+
+const DashboardGenerateReissuePin = lazy(
+  () => import("../pages/dashboard/generate-reissue-pin")
 );
 
 const DashboardCards = lazy(() => import("../pages/dashboard/cards"));
@@ -62,7 +70,9 @@ export const routeComponents = {
   cardProfile: DashboardCardProfile,
   createProfile: DashboardCreateProfile,
   cardRequest: DashboardCardRequest,
+  requestDetails: DashboardRequestDetails,
   blockCard: DashboardBlockCard,
+  generateReissuePin: DashboardGenerateReissuePin,
   stock: DashboardStock,
   cards: DashboardCards,
   authList: DashboardAuthList,
@@ -82,8 +92,10 @@ export const routePaths = {
   cardProfile: "/dashboard/card-profile",
   createProfile: "/dashboard/create-profile",
   cardRequest: "/dashboard/card-request",
+  requestDetails: "/dashboard/request-details",
   stock: "/dashboard/stock",
   blockCard: "/dashboard/block-unblock-card",
+  generateReissuePin: "/dashboard/generate-reissue-pin",
   cards: "/dashboard/cards",
   authList: "/dashboard/authorization-list",
   authQueue: "/dashboard/authorization-queue",

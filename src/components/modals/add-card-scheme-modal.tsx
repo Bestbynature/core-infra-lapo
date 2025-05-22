@@ -74,7 +74,7 @@ const AddCardSchemeModal: React.FC = () => {
         <CloseIcon />
       </button>
 
-      <div className="flex items-center mb-6">
+      <div className="flex items-center mb-6 border-b border-[#EAECF0] pb-4">
         <div className="bg-white p-3 rounded-[10px] border border-[#EAECF0] mr-4">
           <ReviewCardIcon outlineColor="#344054" />
         </div>
@@ -88,7 +88,7 @@ const AddCardSchemeModal: React.FC = () => {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 ">
         {formFields.map((field) => (
           <RHFInput
             key={field.id}

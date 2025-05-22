@@ -68,12 +68,20 @@ const pathElements = [
     element: React.createElement(routeComponents.cardRequest),
   },
   {
+    path: routePaths.requestDetails,
+    element: React.createElement(routeComponents.requestDetails),
+  },
+  {
     path: routePaths.stock,
     element: React.createElement(routeComponents.stock),
   },
   {
     path: routePaths.blockCard,
     element: React.createElement(routeComponents.blockCard),
+  },
+  {
+    path: routePaths.generateReissuePin,
+    element: React.createElement(routeComponents.generateReissuePin),
   },
   {
     path: routePaths.cards,

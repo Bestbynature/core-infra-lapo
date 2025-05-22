@@ -1,13 +1,14 @@
 import { Header, Pagination } from "../../components";
 import React, { useState, useMemo } from "react";
 import type { ChangeEvent } from "react";
+import useModal from "../../utils/context/use-modal";
 
-const BlockUnblockCard = () => {
+const GenerateReissuePin = () => {
   return (
     <main className="">
       <Header
-        title="Block/Unblock Card"
-        description="Attend to card block and unblock requests here."
+        title="Generate/Reissue PIN"
+        description="Generate and Reissue Card Pins here."
       />
       <hr className="my-2 border-t border-[#98A2B3]" />
       <AvailableCardsTable />
@@ -15,7 +16,7 @@ const BlockUnblockCard = () => {
   );
 };
 
-export default BlockUnblockCard;
+export default GenerateReissuePin;
 
 interface Card {
   id: string;
@@ -30,56 +31,60 @@ const ITEMS_PER_PAGE = 3;
 
 const AvailableCardsTable: React.FC = () => {
   const [accountNumber, setAccountNumber] = useState<string>("");
-  const [cards, setCards] = useState<Card[]>([
-    {
-      id: "1",
-      maskedPan: "506012******6382",
-      dateIssued: "11/14/2024 10:27:43",
-      expiry: "32 months",
-      batch: "847264905",
-      isBlocked: true,
-    },
-    {
-      id: "2",
-      maskedPan: "506012******6382",
-      dateIssued: "11/14/2024 10:27:43",
-      expiry: "32 months",
-      batch: "847264905",
-      isBlocked: true,
-    },
-    {
-      id: "3",
-      maskedPan: "506012******6382",
-      dateIssued: "11/14/2024 10:27:43",
-      expiry: "32 months",
-      batch: "847264905",
-      isBlocked: false,
-    },
-    {
-      id: "4",
-      maskedPan: "411122******1234",
-      dateIssued: "11/15/2024 09:00:00",
-      expiry: "24 months",
-      batch: "987654321",
-      isBlocked: false,
-    },
-    {
-      id: "5",
-      maskedPan: "506012******6382",
-      dateIssued: "11/16/2024 11:30:00",
-      expiry: "30 months",
-      batch: "123456789",
-      isBlocked: true,
-    },
-    {
-      id: "6",
-      maskedPan: "999988******7777",
-      dateIssued: "11/17/2024 14:00:00",
-      expiry: "18 months",
-      batch: "555555555",
-      isBlocked: false,
-    },
-  ]);
+
+  const cards: Card[] = useMemo(
+    () => [
+      {
+        id: "1",
+        maskedPan: "506012******6382",
+        dateIssued: "11/14/2024 10:27:43",
+        expiry: "32 months",
+        batch: "847264905",
+        isBlocked: true,
+      },
+      {
+        id: "2",
+        maskedPan: "506012******6382",
+        dateIssued: "11/14/2024 10:27:43",
+        expiry: "32 months",
+        batch: "847264905",
+        isBlocked: true,
+      },
+      {
+        id: "3",
+        maskedPan: "506012******6382",
+        dateIssued: "11/14/2024 10:27:43",
+        expiry: "32 months",
+        batch: "847264905",
+        isBlocked: false,
+      },
+      {
+        id: "4",
+        maskedPan: "411122******1234",
+        dateIssued: "11/15/2024 09:00:00",
+        expiry: "24 months",
+        batch: "987654321",
+        isBlocked: false,
+      },
+      {
+        id: "5",
+        maskedPan: "506012******6382",
+        dateIssued: "11/16/2024 11:30:00",
+        expiry: "30 months",
+        batch: "123456789",
+        isBlocked: true,
+      },
+      {
+        id: "6",
+        maskedPan: "999988******7777",
+        dateIssued: "11/17/2024 14:00:00",
+        expiry: "18 months",
+        batch: "555555555",
+        isBlocked: false,
+      },
+    ],
+    []
+  );
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const filteredCards = useMemo(() => {
@@ -102,15 +107,6 @@ const AvailableCardsTable: React.FC = () => {
     setCurrentPage(1);
   };
 
-  const handleToggleBlockStatus = (cardId: string) => {
-    setCards((prevCards) =>
-      prevCards.map((card) =>
-        card.id === cardId ? { ...card, isBlocked: !card.isBlocked } : card
-      )
-    );
-    console.log(`Toggled block status for card ID: ${cardId}`);
-  };
-
   const goToPreviousPage = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
@@ -124,8 +120,24 @@ const AvailableCardsTable: React.FC = () => {
     { label: "Date Issued", alignment: "text-center" },
     { label: "Expiry", alignment: "text-center" },
     { label: "Batch", alignment: "text-center" },
-    { label: "Block Status", alignment: "text-center" },
+    { label: "Action", alignment: "text-center" },
   ];
+
+  const {
+    setIsModalOpen,
+    setIsGeneratePinModalOpen,
+    setIsReissuePinModalOpen,
+  } = useModal();
+
+  const handleGeneratePinClick = () => {
+    setIsModalOpen(true);
+    setIsGeneratePinModalOpen(true);
+  };
+
+  const handleReissuePinClick = () => {
+    setIsModalOpen(true);
+    setIsReissuePinModalOpen(true);
+  };
 
   return (
     <div className="mx-auto mt-[10px] min-h-screen">
@@ -181,33 +193,19 @@ const AvailableCardsTable: React.FC = () => {
                     <td className="py-3 px-4 border border-[#EAECF0] text-center text-[10px] text-[#475467]">
                       {card.batch}
                     </td>
-                    <td className="py-3 px-4 border border-[#EAECF0] text-center text-[10px] text-[#475467]">
-                      <label
-                        htmlFor={`toggle-${card.id}`}
-                        className="flex items-center cursor-pointer justify-center"
+                    <td className="py-3 px-4 border border-[#EAECF0] text-center text-[10px] font-bold flex justify-center items-center gap-2">
+                      <button
+                        className="text-[#014DAF] cursor-pointer"
+                        onClick={handleGeneratePinClick}
                       >
-                        <div className="relative">
-                          <input
-                            type="checkbox"
-                            id={`toggle-${card.id}`}
-                            className="sr-only"
-                            checked={card.isBlocked}
-                            onChange={() => handleToggleBlockStatus(card.id)}
-                          />
-                          <div
-                            className={`block w-10 h-6 rounded-full ${
-                              card.isBlocked ? "bg-[#007129]" : "bg-[#F2F4F7]"
-                            }`}
-                          ></div>
-                          <div
-                            className={`dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform duration-300 ease-in-out ${
-                              card.isBlocked
-                                ? "translate-x-full"
-                                : "translate-x-0"
-                            }`}
-                          ></div>
-                        </div>
-                      </label>
+                        Generate Pin
+                      </button>
+                      <button
+                        className="text-[#475467] cursor-pointer"
+                        onClick={handleReissuePinClick}
+                      >
+                        Reissue Pin
+                      </button>
                     </td>
                   </tr>
                 ))}

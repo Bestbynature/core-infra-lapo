@@ -8,6 +8,7 @@ interface InputProps {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   required?: boolean;
+  bgColor?: string;
 }
 
 const RHFInput: React.FC<InputProps> = ({
@@ -18,6 +19,7 @@ const RHFInput: React.FC<InputProps> = ({
   onChange,
   placeholder,
   required = false,
+  bgColor,
 }) => {
   return (
     <div className="mb-4">
@@ -36,7 +38,9 @@ const RHFInput: React.FC<InputProps> = ({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className="shadow appearance-none border bg-white border-gray-300 rounded w-full py-[10px] px-[14px] text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        className={`shadow appearance-none border ${
+          bgColor ? bgColor : "bg-white"
+        } border-gray-300 rounded w-full py-[10px] px-[14px] text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
       />
     </div>
   );

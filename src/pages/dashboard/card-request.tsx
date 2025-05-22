@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import { Header, SearchRow } from "../../components";
+import { routePaths } from "../../routes/routes-config";
+import { useForm } from "../../utils/context/use-form";
 
 const CardRequest = () => {
   return (
@@ -16,53 +19,9 @@ const CardRequest = () => {
 export default CardRequest;
 
 const CardRequestsTable = () => {
-  const cardRequests = [
-    {
-      id: 1,
-      branch: "Corporate",
-      initiator: "Root User",
-      quantity: 10,
-      batch: "847264905",
-      dateRequested: "10/18/2024 14:39:58",
-      status: "Ready",
-    },
-    {
-      id: 2,
-      branch: "Corporate",
-      initiator: "Root User",
-      quantity: 10,
-      batch: "847264906",
-      dateRequested: "10/18/2024 14:39:58",
-      status: "Ready",
-    },
-    {
-      id: 3,
-      branch: "Corporate",
-      initiator: "Root User",
-      quantity: 10,
-      batch: "847264907",
-      dateRequested: "10/18/2024 14:39:58",
-      status: "In Progress",
-    },
-    {
-      id: 4,
-      branch: "Corporate",
-      initiator: "Root User",
-      quantity: 10,
-      batch: "847264908",
-      dateRequested: "10/18/2024 14:39:58",
-      status: "Pending",
-    },
-    {
-      id: 5,
-      branch: "Corporate",
-      initiator: "Root User",
-      quantity: 10,
-      batch: "847264909",
-      dateRequested: "10/18/2024 14:39:58",
-      status: "Acknowledged",
-    },
-  ];
+  const navigate = useNavigate();
+
+  const { cardRequests, setSelectedCardId } = useForm();
 
   const getStatusBadgeClasses = (status: string) => {
     switch (status) {
@@ -77,6 +36,11 @@ const CardRequestsTable = () => {
       default:
         return "bg-gray-100 text-gray-800";
     }
+  };
+
+  const handleNavigate = (id: number) => {
+    setSelectedCardId(id);
+    navigate(routePaths.requestDetails);
   };
 
   return (
@@ -106,7 +70,11 @@ const CardRequestsTable = () => {
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
             {cardRequests.map((request) => (
-              <tr key={request.id}>
+              <tr
+                key={request.id}
+                className="hover:bg-gray-50 cursor-pointer"
+                onClick={() => handleNavigate(request.id)}
+              >
                 <td className="px-4 py-1 whitespace-nowrap text-center text-[10px] text-gray-900">
                   {request.branch}
                 </td>

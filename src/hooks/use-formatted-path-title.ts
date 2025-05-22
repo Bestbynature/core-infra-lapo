@@ -7,8 +7,11 @@ export function useFormattedPathTitle() {
     "/dashboard/roles": "Roles",
     "/dashboard/create-role": "Roles",
     "/dashboard/block-unblock-card": "Block/Unblock Card",
+    "/dashboard/generate-reissue-pin": "Generate/Reissue Pin",
     "/dashboard/card-profile": "Card Profile",
     "/dashboard/create-profile": "Card Profile",
+    "/dashboard/card-request": "Card Request",
+    "/dashboard/request-details": "Card Request",
   };
 
   const matchedKey = Object.keys(routeMap).find((key) =>

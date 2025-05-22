@@ -32,6 +32,7 @@ const TitleBar = () => {
   const isSpecialPath = [
     routePaths.createRole,
     routePaths.createProfile,
+    routePaths.requestDetails,
   ].includes(pathname);
 
   const handleNavigate = () => {

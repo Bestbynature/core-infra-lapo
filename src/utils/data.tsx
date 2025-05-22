@@ -14,6 +14,7 @@ import {
   TrailIcon,
   ProfileIcon,
   CardSchemeIcon,
+  GenerateReissuePinIcon,
 } from "../assets/icons";
 import { routePaths } from "../routes/routes-config";
 
@@ -47,6 +48,11 @@ export const sidebarItems: SidebarItem[] = [
     label: "Block/Unblock Card",
     icon: BlockCardIcon,
     path: routePaths.blockCard,
+  },
+  {
+    label: "Generate/Reissue Pin",
+    icon: GenerateReissuePinIcon,
+    path: routePaths.generateReissuePin,
   },
   { label: "Cards", icon: CardsIcon, path: routePaths.cards },
   {
