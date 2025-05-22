@@ -73,14 +73,6 @@ const CardStatusDistribution = () => {
             </PieChart>
           </ResponsiveContainer>
         </div>
-        {/* <div className="absolute flex flex-col gap-2 items-center justify-center pointer-events-none border border-red-600">
-          <span className="text-secondary text-xs font-medium">
-            Total Cards
-          </span>
-          <span className="text-primary text-2xl font-medium">
-            {totalCards.toLocaleString()}
-          </span>
-        </div> */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col gap-2 items-center justify-center pointer-events-none">
           <span className="text-secondary text-xs font-medium">
             Total Cards

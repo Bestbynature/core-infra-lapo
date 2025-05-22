@@ -33,6 +33,8 @@ export interface ModalContextProps {
   setIsGenerateSendEmailModalOpen: (isOpen: boolean) => void;
   isReissueSendEmailModalOpen: boolean;
   setIsReissueSendEmailModalOpen: (isOpen: boolean) => void;
+  isResolveFilterModalOpen: boolean;
+  setIsResolveFilterModalOpen: (isOpen: boolean) => void;
 }
 
 export const ModalContext = createContext<ModalContextProps | undefined>(

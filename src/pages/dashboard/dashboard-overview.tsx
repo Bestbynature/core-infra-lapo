@@ -17,13 +17,23 @@ import MonthlyIssuanceChart from "../../components/charts.tsx/monthly-issuance-c
 import ThisWeeksIncomeChart from "../../components/charts.tsx/this-weeks-income-chart";
 
 const DashboardOverview = () => {
+  const userName = JSON.parse(
+    localStorage.getItem("loginData") || "{}"
+  ).username;
+
+  const capitaliseFirstLetter = (str: string) => {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+  const userNameCapitalised = capitaliseFirstLetter(userName);
+
   return (
     <main className="flex flex-col gap-3">
-      {/* first row */}
       <div className="flex items-center">
         <div className="flex-1 flex flex-col gap-[6px]">
           <h2 className="text-lg font-bold text-primary">
-            Hi Nazeer, what would you like to do today?
+            Hi {userNameCapitalised || "Nazeer"}, what would you like to do
+            today?
           </h2>
           <p className="text-xs text-primary">
             <span className="font-bold">Last login:</span> 26/11/2024 14:39:58
@@ -35,7 +45,13 @@ const DashboardOverview = () => {
             <p className="font-medium text-[11px] text-primary">Today</p>
           </div>
           <div className="border-l border-gray-300 h-4"></div>
-          <span className="text-primary text-[11px]">11 Nov 2024</span>
+          <span className="text-primary text-[11px]">
+            {new Date().toLocaleDateString("en-GB", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
+            })}
+          </span>
         </div>
       </div>
 
@@ -266,7 +282,7 @@ const RecentCardRequestsTable = () => {
   };
 
   return (
-    <div className="bg-white rounded-xl border border-[#E2E2E2] p-4 mx-auto">
+    <div className="bg-white rounded-xl border border-[#E2E2E2] p-4">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-lg font-medium text-primary">
           Recent Card Requests
@@ -307,17 +323,17 @@ const RecentCardRequestsTable = () => {
                 </td>
                 <td className="px-4 py-1 whitespace-nowrap text-[10px] text-center">
                   <span
-                    className={`px-3 py-1 inline-flex justify-center text-xs leading-5 font-medium rounded-full ${getStatusBadgeClasses(
+                    className={`px-3 py-1 inline-flex justify-center text-[10px] leading-5 font-medium rounded-full ${getStatusBadgeClasses(
                       request.status
                     )}`}
                   >
                     {request.status}
                   </span>
                 </td>
-                <td className="px-4 py-1 whitespace-nowrap text-center text-[10px] font-medium">
-                  <a href="#" className="text-blue-600 hover:text-blue-900">
+                <td className="px-4 py-1 whitespace-nowrap text-center text-[10px] font-bold">
+                  <button className="text-[#014DAF] hover:text-blue-900 cursor-pointer">
                     View
-                  </a>
+                  </button>
                 </td>
               </tr>
             ))}

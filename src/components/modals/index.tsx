@@ -12,6 +12,7 @@ import GeneratePinModal from "./generate-pin-modal";
 import GenerateShowPinModal from "./generate-show-pin-modal";
 import GenerateSendSmsModal from "./generate-send-sms-modal";
 import GenerateSendEmailModal from "./generate-send-email-modal";
+import ResolveFilterModal from "./resolve-filter-modal";
 
 const ModalBox = () => {
   const {
@@ -30,6 +31,7 @@ const ModalBox = () => {
     isReissueSendSmsModalOpen,
     isGenerateSendEmailModalOpen,
     isReissueSendEmailModalOpen,
+    isResolveFilterModalOpen,
   } = useModal();
 
   const modalRoot = document.getElementById("modal-root");
@@ -73,6 +75,12 @@ const ModalBox = () => {
       )}
       {isReissueSendEmailModalOpen && (
         <GenerateSendEmailModal title="Reissue Pin" instructions="Send Email" />
+      )}
+      {isResolveFilterModalOpen && (
+        <ResolveFilterModal
+          title="Filter"
+          instructions="Select conditions and apply"
+        />
       )}
     </ModalLayout>,
     modalRoot

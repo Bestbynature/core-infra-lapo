@@ -141,7 +141,7 @@ const CreateUserModal: React.FC = () => {
     <div className="bg-white rounded-lg shadow-xl w-full max-w-lg p-6 relative">
       <button
         onClick={handleClose}
-        className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 focus:outline-none"
+        className="cursor-pointer absolute top-4 right-4 text-gray-400 hover:text-gray-600 focus:outline-none"
       >
         <CloseIcon />
       </button>

@@ -51,3 +51,6 @@ export { default as GenerateReissuePinIcon } from "./generate-reissue-pin-icon";
 export { default as GeneratePinModalIcon } from "./generate-pin-modal-icon";
 export { default as MailIcon } from "./mail-icon";
 export { default as SmsIcon } from "./sms-icon";
+export { default as ComplaintsLogIcon } from "./complaints-log-icon";
+export { default as CreateComplaintsIcon } from "./create-complaints-icon";
+export { default as ComplaintResolveIcon } from "./complaints-resolve-icon";

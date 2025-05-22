@@ -61,7 +61,7 @@ const CardRequestsTable = () => {
                 <th
                   key={header}
                   scope="col"
-                  className="px-4 py-2 text-center text-xs font-medium text-gray-500 uppercase tracking-tight whitespace-nowrap"
+                  className="px-4 py-2 text-center text-xs font-medium text-gray-500 tracking-tight whitespace-nowrap"
                 >
                   {header}
                 </th>
@@ -92,7 +92,7 @@ const CardRequestsTable = () => {
                 </td>
                 <td className="px-4 py-1 whitespace-nowrap text-[10px] text-center">
                   <span
-                    className={`px-3 py-1 inline-flex justify-center text-xs leading-5 font-medium rounded-full ${getStatusBadgeClasses(
+                    className={`px-3 py-1 inline-flex justify-center leading-5 font-medium rounded-full ${getStatusBadgeClasses(
                       request.status
                     )}`}
                   >

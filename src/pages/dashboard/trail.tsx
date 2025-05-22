@@ -140,12 +140,14 @@ const TrailTable: React.FC = () => {
                 ))
               ) : (
                 <tr>
-                  <td
-                    colSpan={tableHeadings.length}
-                    className="py-8 text-center text-gray-500"
-                  >
-                    No trail items found.
-                  </td>
+                  {tableHeadings.map((_, index) => (
+                    <td
+                      key={index}
+                      className=" whitespace-nowrap text-sm border border-[#EAECF0] text-gray-500 text-center"
+                    >
+                      <div className="h-10" />
+                    </td>
+                  ))}
                 </tr>
               )}
             </tbody>

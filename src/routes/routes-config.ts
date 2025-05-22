@@ -41,6 +41,14 @@ const DashboardGenerateReissuePin = lazy(
   () => import("../pages/dashboard/generate-reissue-pin")
 );
 
+const DashboardComplaintsLog = lazy(
+  () => import("../pages/dashboard/complaints-log")
+);
+
+const DashboardComplaintsResolve = lazy(
+  () => import("../pages/dashboard/complaints-resolve")
+);
+
 const DashboardCards = lazy(() => import("../pages/dashboard/cards"));
 
 const DashboardAuthList = lazy(
@@ -73,6 +81,8 @@ export const routeComponents = {
   requestDetails: DashboardRequestDetails,
   blockCard: DashboardBlockCard,
   generateReissuePin: DashboardGenerateReissuePin,
+  complaintsLog: DashboardComplaintsLog,
+  complaintsResolve: DashboardComplaintsResolve,
   stock: DashboardStock,
   cards: DashboardCards,
   authList: DashboardAuthList,
@@ -96,6 +106,8 @@ export const routePaths = {
   stock: "/dashboard/stock",
   blockCard: "/dashboard/block-unblock-card",
   generateReissuePin: "/dashboard/generate-reissue-pin",
+  complaintsLog: "/dashboard/complaints-log",
+  complaintsResolve: "/dashboard/complaints-resolve",
   cards: "/dashboard/cards",
   authList: "/dashboard/authorization-list",
   authQueue: "/dashboard/authorization-queue",

@@ -93,98 +93,104 @@ export default function CSVUploadModal() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
-      <div className="flex items-start gap-4">
-        <div className="border border-[#EAECF0] p-5 rounded-2xl bg-white">
-          <UploadIcon />
-        </div>
-        <div className="flex-1 flex flex-col gap-1">
-          <h2 className="text-lg font-bold text-[#101828] ">Upload CSV File</h2>
-          <p className="text-sm text-[#475467]">
-            CSV file should contain the following columns
-          </p>
-          <ul className="list-disc list-inside text-sm text-gray-700 my-4">
-            <li>Name</li>
-            <li>Code</li>
-            <li>Address</li>
-            <li>Zone</li>
-            <li>Area</li>
-          </ul>
-        </div>
-        <div className="cursor-pointer" onClick={handleClose}>
-          <CloseIcon />
-        </div>
-      </div>
-
-      <div
-        className="border-2 border-[#014DAF] rounded-xl p-5 text-center cursor-pointer hover:bg-blue-50"
-        onClick={handleClick}
-        onDragOver={(e) => e.preventDefault()}
-        onDrop={handleDrop}
-      >
-        <input
-          ref={inputRef}
-          type="file"
-          accept=".csv, .xlsx"
-          className="hidden"
-          onChange={handleFileChange}
-        />
-        <div className="flex items-center justify-center">
-          <CloudUploadIcon />
-        </div>
-        <p className="text-blue-600 font-semibold">
-          Click to upload{" "}
-          <span className="text-gray-500">or drag and drop</span>
-        </p>
-        <p className="text-sm text-gray-400">CSV, XSLX (max. 10mb)</p>
-      </div>
-
-      {file && (
-        <div className="mt-4 flex flex-col items-center gap-3 border border-[#EAECF0] p-3 rounded-md bg-gray-50">
-          <div className="grid grid-cols-[10%_1fr] gap-2">
-            <div className="">
-              <img src={CSVImage} alt="" className="" />
-            </div>
-            <div className="flex items-start gap-2">
-              <div>
-                <p className="text-sm font-medium text-[#344054] truncate flex-1">
-                  {file.name}
-                </p>
-                <p className="text-sm text-[#475467]">{fileSizeMB} MB</p>
-              </div>
-              <div className="cursor-pointer" onClick={handleDelete}>
-                <DeleteIcon />
-              </div>
-            </div>
-            <div className="">&nbsp;</div>
-            <div className="flex items-center gap-2">
-              <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden border border-[#014DAF]">
-                <div
-                  className="h-full rounded-full bg-[#014DAF] transition-all duration-200"
-                  style={{ width: `${uploadProgress}%` }}
-                ></div>
-              </div>
-              <p className="text-sm text-[#344054]">
-                {uploadProgress === 100 ? "Completed" : `${uploadProgress}%`}
-              </p>
-            </div>
+    <div className="h-screen flex justify-center items-center">
+      <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md">
+        <div className="flex items-start gap-4">
+          <div className="border border-[#EAECF0] p-5 rounded-2xl bg-white">
+            <UploadIcon />
+          </div>
+          <div className="flex-1 flex flex-col gap-1">
+            <h2 className="text-lg font-bold text-[#101828] ">
+              Upload CSV File
+            </h2>
+            <p className="text-sm text-[#475467]">
+              CSV file should contain the following columns
+            </p>
+            <ul className="list-disc list-inside text-sm text-[#475467] my-4">
+              <li>Name</li>
+              <li>Code</li>
+              <li>Address</li>
+              <li>Zone</li>
+              <li>Area</li>
+            </ul>
+          </div>
+          <div className="cursor-pointer" onClick={handleClose}>
+            <CloseIcon />
           </div>
         </div>
-      )}
 
-      <div className="mt-6 w-full flex items-center gap-4">
-        <button
-          onClick={handleClose}
-          className="px-4 py-2 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 w-1/2"
+        <div
+          className="border-2 border-[#014DAF] rounded-xl p-5 text-center cursor-pointer hover:bg-blue-50"
+          onClick={handleClick}
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={handleDrop}
         >
-          Cancel
-        </button>
-        <button
-          onClick={handleSubmit}
-          className="px-4 py-2 rounded-md bg-[#014DAF] text-white hover:bg-blue-700 w-1/2"
-        >
-          Submit
-        </button>
+          <input
+            ref={inputRef}
+            type="file"
+            accept=".csv, .xlsx"
+            className="hidden"
+            onChange={handleFileChange}
+          />
+          <div className="flex items-center justify-center">
+            <CloudUploadIcon />
+          </div>
+          <p className="text-[#014DAF] text-sm font-semibold">
+            Click to upload{" "}
+            <span className="text-[#475467] text-sm font-normal">
+              or drag and drop
+            </span>
+          </p>
+          <p className="text-xs mt-2 text-[#475467]">CSV, XSLX (max. 10mb)</p>
+        </div>
+
+        {file && (
+          <div className="mt-4 flex flex-col items-center gap-3 border border-[#EAECF0] p-3 rounded-md bg-gray-50">
+            <div className="grid grid-cols-[10%_1fr] gap-2">
+              <div className="">
+                <img src={CSVImage} alt="" className="" />
+              </div>
+              <div className="flex items-start gap-2">
+                <div>
+                  <p className="text-sm font-medium text-[#344054] truncate flex-1">
+                    {file.name}
+                  </p>
+                  <p className="text-sm text-[#475467]">{fileSizeMB} MB</p>
+                </div>
+                <div className="cursor-pointer" onClick={handleDelete}>
+                  <DeleteIcon />
+                </div>
+              </div>
+              <div className="">&nbsp;</div>
+              <div className="flex items-center gap-2">
+                <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden border border-[#014DAF]">
+                  <div
+                    className="h-full rounded-full bg-[#014DAF] transition-all duration-200"
+                    style={{ width: `${uploadProgress}%` }}
+                  ></div>
+                </div>
+                <p className="text-sm text-[#344054]">
+                  {uploadProgress === 100 ? "Completed" : `${uploadProgress}%`}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
+        <div className="mt-6 w-full flex items-center gap-4 text-base font-bold">
+          <button
+            onClick={handleClose}
+            className="px-4 py-2 rounded-md bg-white text-[#344054] border border-gray-300 hover:bg-gray-200 w-1/2 "
+          >
+            Cancel
+          </button>
+          <button
+            onClick={handleSubmit}
+            className="px-4 py-2 rounded-md bg-[#014DAF] text-white hover:bg-blue-700 w-1/2 "
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </div>
   );

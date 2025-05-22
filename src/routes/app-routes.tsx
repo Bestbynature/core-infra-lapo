@@ -84,6 +84,14 @@ const pathElements = [
     element: React.createElement(routeComponents.generateReissuePin),
   },
   {
+    path: routePaths.complaintsLog,
+    element: React.createElement(routeComponents.complaintsLog),
+  },
+  {
+    path: routePaths.complaintsResolve,
+    element: React.createElement(routeComponents.complaintsResolve),
+  },
+  {
     path: routePaths.cards,
     element: React.createElement(routeComponents.cards),
   },

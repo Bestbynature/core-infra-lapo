@@ -21,7 +21,7 @@ const AccountForm = () => {
     confirmPassword: "",
   });
   return (
-    <form className="flex flex-col gap-4 bg-white border border-[#E2E2E2] p-4 rounded-xl max-w-xl">
+    <form className="flex flex-col gap-4 bg-white border border-[#E2E2E2] p-4 rounded-xl w-[40%]">
       <h2 className="text-lg font-medium text-primary">Change Password</h2>
       <AccountPasswordField
         label="Old Password"

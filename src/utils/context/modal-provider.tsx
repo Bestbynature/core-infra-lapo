@@ -39,6 +39,9 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
   const [isReissueSendEmailModalOpen, setIsReissueSendEmailModalOpen] =
     useState(false);
 
+    const [isResolveFilterModalOpen, setIsResolveFilterModalOpen] =
+    useState(false);
+
   return (
     <ModalContext.Provider
       value={{
@@ -74,6 +77,8 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
         setIsGenerateSendEmailModalOpen,
         isReissueSendEmailModalOpen,
         setIsReissueSendEmailModalOpen,
+        isResolveFilterModalOpen,
+        setIsResolveFilterModalOpen,
       }}
     >
       {children}

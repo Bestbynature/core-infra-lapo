@@ -15,8 +15,10 @@ import {
   ProfileIcon,
   CardSchemeIcon,
   GenerateReissuePinIcon,
+  ComplaintsLogIcon,
 } from "../assets/icons";
 import { routePaths } from "../routes/routes-config";
+import ComplaintsResolveIcon from "../assets/icons/complaints-resolve-icon";
 
 type SidebarItem = {
   label: string;
@@ -53,6 +55,16 @@ export const sidebarItems: SidebarItem[] = [
     label: "Generate/Reissue Pin",
     icon: GenerateReissuePinIcon,
     path: routePaths.generateReissuePin,
+  },
+  {
+    label: "Complaints Log",
+    icon: ComplaintsLogIcon,
+    path: routePaths.complaintsLog,
+  },
+  {
+    label: "Complaints Resolve",
+    icon: ComplaintsResolveIcon,
+    path: routePaths.complaintsResolve,
   },
   { label: "Cards", icon: CardsIcon, path: routePaths.cards },
   {

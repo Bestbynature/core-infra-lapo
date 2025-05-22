@@ -1,55 +1,51 @@
 import { BlueButton, Header, Pagination } from "../../components";
 
-const Cards = () => {
+const ComplaintsLog = () => {
   return (
     <main className="">
-      <Header title="Cards" description="View all cards status here." />
-      <hr className="my-2 border-t border-[#98A2B3]" />
+      <Header
+        title="Complaints: Log"
+        description="View details of logged complaints and log new ones here."
+      />
       <AdvancedCardsTable />
     </main>
   );
 };
 
-export default Cards;
+export default ComplaintsLog;
 
 import React, { useState, useMemo } from "react";
 import type { ChangeEvent } from "react";
 import {
   CalendarIcon,
+  CreateComplaintsIcon,
   DotIcon,
   FilterIcon,
-  ReviewCardIcon,
 } from "../../assets/icons";
 import SearchIcon from "../../assets/icons/search-icon";
 
-interface Card {
+interface Complaint {
   id: string;
-  cardholder: string;
-  maskedPan: string;
-  dateIssued: string;
-  expiry: string;
-  batch: string;
-  type: "Personalized" | "Instant" | "Blocked" | "Pin Reissue";
+  accountNumber: string;
+  customerName: string;
+  submissionDate: string;
+  category: string;
+  type: "Pending" | "Resolved";
 }
 
 const ITEMS_PER_PAGE = 10;
 
 const AdvancedCardsTable: React.FC = () => {
   const [searchText, setSearchText] = useState<string>("");
-  const [activeFilter, setActiveFilter] = useState<Card["type"] | "All">(
-    "Personalized"
+  const [activeFilter, setActiveFilter] = useState<Complaint["type"] | "All">(
+    "Pending"
   );
   const [sortByDate, setSortByDate] = useState<"asc" | "desc" | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const allCards: Card[] = useMemo(() => {
-    const data: Card[] = [];
-    const types: Card["type"][] = [
-      "Personalized",
-      "Instant",
-      "Blocked",
-      "Pin Reissue",
-    ];
+  const allCards: Complaint[] = useMemo(() => {
+    const data: Complaint[] = [];
+    const types: Complaint["type"][] = ["Pending", "Resolved"];
     const now = new Date();
 
     for (let i = 1; i <= 50; i++) {
@@ -73,13 +69,14 @@ const AdvancedCardsTable: React.FC = () => {
 
       data.push({
         id: `card-${i}`,
-        cardholder: `Nazeer Ajibola ${String.fromCharCode(
+        customerName: `Nazeer Ajibola ${String.fromCharCode(
           65 + Math.floor(Math.random() * 26)
         )}`,
-        maskedPan: `506012******${(1000 + i).toString().slice(-4)}`,
-        dateIssued: formattedDate,
-        expiry: `${30 + Math.floor(Math.random() * 10)} months`,
-        batch: `847264${(900 + i).toString().slice(-3)}`,
+        submissionDate: formattedDate,
+        category: `Card Dispute`,
+        accountNumber: `1234-5678-9012-${String(
+          Math.floor(Math.random() * 10000)
+        ).padStart(4, "0")}`,
         type: type,
       });
     }
@@ -94,9 +91,9 @@ const AdvancedCardsTable: React.FC = () => {
       const lowercasedSearchText = searchText.toLowerCase();
       result = result.filter(
         (card) =>
-          card.cardholder.toLowerCase().includes(lowercasedSearchText) ||
-          card.maskedPan.toLowerCase().includes(lowercasedSearchText) ||
-          card.batch.toLowerCase().includes(lowercasedSearchText)
+          card.accountNumber.toLowerCase().includes(lowercasedSearchText) ||
+          card.customerName.toLowerCase().includes(lowercasedSearchText) ||
+          card.category.toLowerCase().includes(lowercasedSearchText)
       );
     }
 
@@ -106,8 +103,8 @@ const AdvancedCardsTable: React.FC = () => {
 
     if (sortByDate) {
       result.sort((a, b) => {
-        const dateA = new Date(a.dateIssued);
-        const dateB = new Date(b.dateIssued);
+        const dateA = new Date(a.submissionDate);
+        const dateB = new Date(b.submissionDate);
 
         if (sortByDate === "asc") {
           return dateA.getTime() - dateB.getTime();
@@ -134,7 +131,7 @@ const AdvancedCardsTable: React.FC = () => {
     setCurrentPage(1);
   };
 
-  const handleFilterClick = (filterType: Card["type"] | "All") => {
+  const handleFilterClick = (filterType: Complaint["type"] | "All") => {
     setActiveFilter(filterType);
     setCurrentPage(1);
   };
@@ -158,15 +155,14 @@ const AdvancedCardsTable: React.FC = () => {
 
   // --- Table Headings ---
   const tableHeadings = [
-    { label: "Cardholder", alignment: "justify-start" },
-    { label: "Masked PAN", alignment: "justify-center" },
+    { label: "Account Number", alignment: "justify-start" },
+    { label: "Customer Name", alignment: "justify-center" },
     {
-      label: "Date Issued",
+      label: "Submission date",
       alignment: "justify-center",
       sortable: true,
     },
-    { label: "Expiry", alignment: "justify-center" },
-    { label: "Batch", alignment: "justify-center" },
+    { label: "Category", alignment: "justify-center" },
   ];
 
   return (
@@ -174,12 +170,11 @@ const AdvancedCardsTable: React.FC = () => {
       {/* Top Navigation / Filter Buttons */}
       <div className="flex items-center justify-between mb-6 border-b border-gray-200 pb-4">
         <div className="flex border border-gray-300 rounded-lg">
-          {["Personalized", "Instant", "Blocked", "Pin Reissue"].map(
-            (type, index) => (
-              <button
-                key={type}
-                onClick={() => handleFilterClick(type as Card["type"])}
-                className={`py-2 flex items-center gap-2 border border-gray-300 px-4 text-sm font-medium transition-colors duration-200
+          {["Pending", "Resolved"].map((type, index) => (
+            <button
+              key={type}
+              onClick={() => handleFilterClick(type as Complaint["type"])}
+              className={`py-2 flex items-center gap-2 border border-gray-300 px-4 text-sm font-medium transition-colors duration-200
                 ${
                   activeFilter === type
                     ? "bg-[#F9FAFB] text-[#1D2939]"
@@ -188,17 +183,16 @@ const AdvancedCardsTable: React.FC = () => {
                 
                 ${index === 0 ? "rounded-l-lg" : ""}
                 ${index === 3 ? "rounded-r-lg" : ""}`}
-              >
-                {activeFilter === type && <DotIcon />}
-                {type}
-              </button>
-            )
-          )}
+            >
+              {activeFilter === type && <DotIcon />}
+              {type}
+            </button>
+          ))}
         </div>
         <BlueButton
-          label="Issue Card"
-          icon={<ReviewCardIcon />}
-          onClick={() => console.log("Issue Card Clicked")}
+          label="Log Complaint"
+          icon={<CreateComplaintsIcon />}
+          onClick={() => console.log("Log Complaint Clicked")}
         />
       </div>
 
@@ -209,7 +203,7 @@ const AdvancedCardsTable: React.FC = () => {
           <input
             type="search"
             name="search"
-            placeholder="Search Card"
+            placeholder="Search complaint"
             value={searchText}
             onChange={handleSearchChange}
             className="w-full h-full outline-none bg-transparent text-xs text-[#344054] placeholder:text-[#344054]"
@@ -224,7 +218,7 @@ const AdvancedCardsTable: React.FC = () => {
             </span>
             Date
           </button>
-          <button className="flex items-center text-xs font-medium px-4 py-2 border border-gray-300 rounded-md bg-white hover:bg-gray-50 text-gray-700">
+          <button className="flex items-center px-4 py-2 border border-gray-300 rounded-md bg-white hover:bg-gray-50 text-gray-700">
             <span className="mr-2">
               <FilterIcon />
             </span>
@@ -269,19 +263,16 @@ const AdvancedCardsTable: React.FC = () => {
                 currentCards.map((card) => (
                   <tr key={card.id} className="hover:bg-gray-50 text-[10px]">
                     <td className="py-3 px-4 border border-[#EAECF0] text-left">
-                      {card.cardholder}
+                      {card.accountNumber}
                     </td>
                     <td className="py-3 px-4 border border-[#EAECF0] text-center">
-                      {card.maskedPan}
+                      {card.customerName}
                     </td>
                     <td className="py-3 px-4 border border-[#EAECF0] text-center">
-                      {card.dateIssued}
+                      {card.submissionDate}
                     </td>
                     <td className="py-3 px-4 border border-[#EAECF0] text-center">
-                      {card.expiry}
-                    </td>
-                    <td className="py-3 px-4 border border-[#EAECF0] text-center">
-                      {card.batch}
+                      {card.category}
                     </td>
                   </tr>
                 ))
@@ -291,7 +282,7 @@ const AdvancedCardsTable: React.FC = () => {
                     colSpan={tableHeadings.length}
                     className="py-8 text-center text-gray-500"
                   >
-                    No cards found matching your criteria.
+                    No complaints found matching your criteria.
                   </td>
                 </tr>
               )}
